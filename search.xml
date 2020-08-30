@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>记本博客的搭建过程(1)</title>
+      <link href="/post/hexo-blog-setup-basic/"/>
+      <url>/post/hexo-blog-setup-basic/</url>
+      
+        <content type="html"><![CDATA[<h2 id="关于博客的选择"><a class="markdownIt-Anchor" href="#关于博客的选择"></a> 关于博客的选择</h2><p>众所周知， <s>人类的本质是复读机</s> 正常人都要有个博客（滑稽</p><p>那么就选一个吧</p><p>基本要求：</p><ul><li>免费（本人没钱，呜呜呜</li><li>快速（不然访客心情不好</li><li>美观（不然<strong>自己</strong>心情不好</li></ul><p>上百度一搜</p><p><img src= "https://gitee.com/danieldcy/img/raw/master/img/20200809150620.gif" data-lazy-src="https://bu.dusays.com/2020/08/30/5a981ad80b6d7.png" alt="搜索结果" /></p><p><s>嗯，全是广告</s></p><p>一般来说，主流的博客平台选择就三个</p><ol><li><p>别人搭好的：博客园，csdn等</p><p>优点：方便</p><p>适合不愿意折腾的人，可自定义程度较低</p></li><li><p>WordPress: 麻烦！！</p></li><li><p>以hexo为首的自建博客</p><p>轻量级，高度可自定义，好看</p></li></ol><p>选择嘛… <s>懂得都懂</s></p><h2 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h2><h3 id="安装-nodejs"><a class="markdownIt-Anchor" href="#安装-nodejs"></a> 安装 Node.js</h3><blockquote><p>官方下载地址：<a href="http://nodejs.cn/download/">http://nodejs.cn/download/</a></p></blockquote><p>注意：一定要选择 “Add to PATH” !</p><p>在终端(cmd / windows terminal / powershell / git bash)中输入以下命令</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure><p>如果输出了版本号，那么证明安装成功！</p><img src= "https://gitee.com/danieldcy/img/raw/master/img/20200809150620.gif" data-lazy-src="https://bu.dusays.com/2020/08/30/a089ef132d638.png" alt="安装成功" style="zoom: 50%;" /><h3 id="安装-hexo"><a class="markdownIt-Anchor" href="#安装-hexo"></a> 安装 Hexo</h3><p>执行以下命令</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure><h3 id="初始化博客"><a class="markdownIt-Anchor" href="#初始化博客"></a> 初始化博客</h3><p>在一个<strong>空文件夹</strong>打开终端</p><p>划重点：空！文！件！夹！</p><p>运行</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure><p>注意：这里是从 github 上面下载，卡住的话建议通过更加科学的方式来进行网上冲浪呢</p><p>指令完成后……你的博客就装好啦！（惊喜</p><p>验证一下吧</p><h3 id="本地运行"><a class="markdownIt-Anchor" href="#本地运行"></a> 本地运行</h3><p>还是在终端，输入</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure><p>然后在浏览器访问输出的那个网址，即</p><p><a href="http://localhost:4000">http://localhost:4000</a></p><p><img src= "https://gitee.com/danieldcy/img/raw/master/img/20200809150620.gif" data-lazy-src="https://bu.dusays.com/2020/08/30/80abea1e591bf.png" alt="网站界面" /></p><p><s>好丑哦</s></p><h2 id="部署"><a class="markdownIt-Anchor" href="#部署"></a> 部署</h2><p>首先，你要注册一个 github 账号</p><p>注意：建议使用 gmail / outlook 等外国邮箱，国内邮箱有些网站不让用（比如加速用的vercel，日后再提）</p><p>注册好后，新建一个项目（左上角 Repositories 旁边的 New）</p><p>名称！填 <strong>[Username].github.io</strong></p><p>举个例子🌰，你的 github 用户名是 AKIOI</p><p>那项目名称就是 <a href="http://AKIOI.github.io">AKIOI.github.io</a></p><p>这样才能触发 github-pages 功能，实现博客部署</p><p>Description 不用填（你想乱写也行</p><p>公开性！选 <strong>Public</strong>！</p><p>Initialize this repository with 选项选择 1、2 两项</p><p>就好啦</p><p>接下来验证你电脑的权限</p><p>终端输入</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;注册邮箱&quot;</span><br></pre></td></tr></table></figure><p>其中 “注册邮箱” 填写你的 github 注册邮箱即可</p><p>然后</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure><p>控制台上会输出一串乱码，没关系，全部复制下来</p><p><img src= "https://gitee.com/danieldcy/img/raw/master/img/20200809150620.gif" data-lazy-src="https://bu.dusays.com/2020/08/30/da216d64ba590.png" alt="乱码" /></p><p>进入 github <a href="https://github.com/settings/ssh/new">设置ssh公钥的界面</a></p><p>Title <s>瞎鸡儿乱填</s></p><p>Key 就是你复制的那一大堆东西</p><p>确定</p><p>输入以下代码以检查你成功了没有</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>如果输出</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Hi ******! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure><p>那就是成功了！</p><p>进入你的项目</p><p>Code - Clone with SSH - 复制下面的链接</p><p>在博客根目录名叫 _config.yml 的文件最后加上这几句</p><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">你复制的地址</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure><p>然后打开终端，执行</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;</span><br><span class="line">git config --global user.email &quot;youremail&quot;</span><br></pre></td></tr></table></figure><p>其中</p><p>yourname是你的名字</p><p>youremail是你的邮箱</p><p>然后安装部署插件</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>最后！在博客根目录执行</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure><p>就好啦！</p><p>打开 [Username].github.io 即可看到你自己的博客呈现在你面前啦！</p><p>关于 Hexo 博客的个性化 &amp; 更高级的操作，我会在其他文章中说明</p><p>日后再更</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[洛谷P3209]平面图判定 题解</title>
       <link href="/post/lg-P3209/"/>
       <url>/post/lg-P3209/</url>
